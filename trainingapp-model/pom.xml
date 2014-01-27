@@ -9,7 +9,7 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>trainingapp-model</artifactId>
-	<name>trainingApp-model</name>
+	<name>trainingapp-model</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

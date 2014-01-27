@@ -10,7 +10,7 @@
 	</parent>
 	<artifactId>trainingapp-webapp</artifactId>
 	<packaging>war</packaging>
-	<name>trainingApp-webapp</name>
+	<name>trainingapp-webapp</name>
 	<url>http://maven.apache.org</url>
 	<build>
 		<finalName>trainingapp-webapp</finalName>
