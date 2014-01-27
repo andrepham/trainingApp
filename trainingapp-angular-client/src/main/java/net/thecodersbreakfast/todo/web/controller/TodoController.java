@@ -1,9 +1,14 @@
 package net.thecodersbreakfast.todo.web.controller;
 
-import net.thecodersbreakfast.todo.model.Todo;
+import model.Todo;
+
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import service.TodoService;
+import store.service.SubscriptionService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +23,9 @@ public class TodoController {
 
     private static final AtomicLong todoIdGenerator = new AtomicLong(0);
     private static final ConcurrentSkipListMap<Long, Todo> todoRepository = new ConcurrentSkipListMap<Long, Todo>();
+    private TodoService todoService;
 
-    @RequestMapping(value = "/todo", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/todo", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody List<Todo> list() {
         return new ArrayList<Todo>(todoRepository.values());
     }
@@ -35,6 +41,7 @@ public class TodoController {
         long id = todoIdGenerator.incrementAndGet();
         todo.setId(id);
         todoRepository.put(id, todo);
+        todoService.storeTodo(null);
     }
 
     @RequestMapping(value = "/todo/{id}", method = RequestMethod.DELETE)
@@ -42,5 +49,10 @@ public class TodoController {
     public void delete(@PathVariable long id) {
         todoRepository.remove(id);
     }
+    
+    @Required
+ 	public void setTodoService(TodoService todoService) {
+ 		this.todoService = todoService;
+ 	}
 
 }

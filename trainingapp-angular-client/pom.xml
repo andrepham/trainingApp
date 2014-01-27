@@ -77,6 +77,16 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>${version.jackson}</version>
 		</dependency>
+		<dependency>
+	        <groupId>training</groupId>
+	        <artifactId>trainingapp-model</artifactId>
+	        <version>1.0-SNAPSHOT</version>
+    	</dependency>
+    	<dependency>
+	        <groupId>training</groupId>
+	        <artifactId>trainingapp-service</artifactId>
+	        <version>1.0-SNAPSHOT</version>
+    	</dependency>
 	</dependencies>
 
 	<!-- ================================================================================ -->

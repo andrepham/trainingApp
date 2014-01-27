@@ -10,5 +10,9 @@
 	   <property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
+	<bean id="todoDao" class="dao.TodoDao">
+	   <property name="todoSessionFactory" ref="todoSessionFactory"/>
+	</bean>
+	
 <!-- 	<bean id="subscribeValidator" class="store.model.validator.SubscribeValidatorDD" lazy-init="false"></bean> -->
 </beans>

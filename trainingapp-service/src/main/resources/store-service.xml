@@ -11,4 +11,7 @@
 	<bean id="subscriptionService" class="store.service.SubscriptionService">
 	   <property name="userDao" ref="userDao"/>
 	</bean>
+	<bean id="todoService" class="service.TodoService">
+	   <property name="todoDao" ref="todoDao"/>
+	</bean>
 </beans>
