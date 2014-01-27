@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>training</groupId>
-	<artifactId>trainingApp</artifactId>
+	<artifactId>trainingapp</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>trainingApp</name>
+	<name>trainingapp</name>
 	<url>http://maven.apache.org</url>
 
 
@@ -19,10 +19,10 @@
 	</properties>
 
 	<modules>
-		<module>trainingApp-webapp</module>
-		<module>trainingApp-service</module>
-		<module>trainingApp-dao</module>
-		<module>trainingApp-model</module>
+		<module>trainingapp-webapp</module>
+		<module>trainingapp-service</module>
+		<module>trainingapp-dao</module>
+		<module>trainingapp-model</module>
 	</modules>
 
 	<build>
