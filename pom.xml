@@ -20,6 +20,7 @@
 
 	<modules>
 		<module>trainingapp-webapp</module>
+		<module>trainingapp-angular-client</module>
 		<module>trainingapp-service</module>
 		<module>trainingapp-dao</module>
 		<module>trainingapp-model</module>
