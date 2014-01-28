@@ -41,7 +41,7 @@ public class TodoController {
         long id = todoIdGenerator.incrementAndGet();
         todo.setId(id);
         todoRepository.put(id, todo);
-        todoService.storeTodo(null);
+        todoService.storeTodo(todo);
     }
 
     @RequestMapping(value = "/todo/{id}", method = RequestMethod.DELETE)

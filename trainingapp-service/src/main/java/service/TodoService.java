@@ -10,7 +10,7 @@ public class TodoService {
 	private TodoDao todoDao;
 	
 	public void storeTodo(Todo todo){
-		
+		todoDao.store(todo);
 	}
 
 	@Required
