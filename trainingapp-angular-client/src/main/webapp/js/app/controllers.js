@@ -29,4 +29,10 @@ function TodoNewController($scope, $location, Todo) {
     $scope.gotoTodoListPage = function () {
         $location.path("/")
     };
+    
+    $scope.master = {}; 
+  
+    $scope.reset = function() {
+    	$scope.todo = angular.copy($scope.master);
+    };
 }

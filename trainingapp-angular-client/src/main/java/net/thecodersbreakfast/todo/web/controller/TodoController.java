@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * @author Olivier Croisier
+ * @author
  */
 @Controller
 public class TodoController {

@@ -6,7 +6,7 @@
 
         <div class="formField">
             <label for="todo.titleA">Titre</label>
-            <input id="todo.titleA" type="text" ng-model="todo.title"/>
+            <input id="todo.titleA" type="text" ng-model="todo.title" required/>
         </div>
 
         <div class="formField">
@@ -18,7 +18,8 @@
         <hr/>
 
         <button class="button" ng-click="gotoTodoListPage()">&lt; Retour</button> &nbsp;
-        <button class="button" ng-click="submit()">Sauver</button>
+        <button class="button" ng-click="submit()">Sauver</button> &nbsp;
+        <button class="button" ng-click="reset()">RESET</button>
 
     </form>
 

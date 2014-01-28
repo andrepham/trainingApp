@@ -46,7 +46,7 @@ public class TodoDao {
 		Todo todo = null;
 		try{
 			tx.begin();
-			todo = (Todo)session.load(Todo.class, id);
+			todo = (Todo)session.get(Todo.class, id);
 			tx.commit();
 		}
 		catch(RuntimeException re){
