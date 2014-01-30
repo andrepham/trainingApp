@@ -1,0 +1,19 @@
+<div id="todoEdition">
+
+    <h2>Edition</h2>
+    
+    <div class="formField">
+            <label for="todo.titleA">Titre</label>
+            <input id="todo.titleA" type="text" ng-model="todo.title" required>{{todo.title}}</>
+        </div>
+
+        <div class="formField">
+            <label for="todo.description">Description</label>
+            <textarea id="todo.description" ng-model="todo.description">
+            </textarea>
+        </div>
+
+    <button class="button" ng-click="gotoTodoListPage()">&lt; Retour</button> &nbsp;
+    <button class="button" ng-click="submit()">Sauver</button> &nbsp;
+
+</div>

@@ -40,6 +40,14 @@ public class TodoController {
         todo.setId(id);
         todoService.storeTodo(todo);
     }
+    
+    @RequestMapping(value = "/todo/edit", method = RequestMethod.PUT)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void edit(@RequestBody Todo todo) {
+        long id = todoIdGenerator.incrementAndGet();
+        todo.setId(id);
+        todoService.storeTodo(todo);
+    }
 
     @RequestMapping(value = "/todo/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)

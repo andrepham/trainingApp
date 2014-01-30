@@ -18,6 +18,17 @@ function TodoDetailController($scope, $routeParams, $location, Todo) {
     $scope.gotoTodoListPage = function () {
         $location.path("/")
     };
+    $scope.gotoEditMode = function(){
+    	$location.path("/todo/edit/"+$scope.todo.id)
+    };
+}
+
+function TodoEditController($scope, $location, Todo){
+	 $scope.submit = function () {
+		 TodoEdit.save($scope.todo, function (todo) {
+	            $location.path('/');
+	        });
+	    };
 }
 
 function TodoNewController($scope, $location, Todo) {
