@@ -26,11 +26,14 @@ function TodoDetailController($scope, $routeParams, $location, Todo) {
 function TodoEditController($scope, $routeParams, $location, Todo){
 	$scope.todo = Todo.get({id:$routeParams.id}, function (todo) {
     });
-	 $scope.submit = function () {
+	$scope.submit = function () {
 		 Todo.save($scope.todo, function (todo) {
 	            $location.path('/');
 	        });
 	    };
+	$scope.gotoTodoListPage = function () {
+	     $location.path("/")
+	};
 }
 
 function TodoNewController($scope, $location, Todo) {
@@ -42,9 +45,7 @@ function TodoNewController($scope, $location, Todo) {
     $scope.gotoTodoListPage = function () {
         $location.path("/")
     };
-    
     $scope.master = {}; 
-  
     $scope.reset = function() {
     	$scope.todo = angular.copy($scope.master);
     };

@@ -20,7 +20,6 @@ import java.util.concurrent.atomic.AtomicLong;
 @Controller
 public class TodoController {
 
-    private static final AtomicLong todoIdGenerator = new AtomicLong(0);
     private TodoService todoService;
 
 	@RequestMapping(value = "/todo", method = RequestMethod.GET, produces = "application/json")
@@ -32,7 +31,7 @@ public class TodoController {
     public @ResponseBody Todo getById(@PathVariable long id) {
         return todoService.retrieveTodoById(id);
     }
-
+    
     @RequestMapping(value = "/todo", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void create(@RequestBody Todo todo) {
@@ -43,17 +42,6 @@ public class TodoController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable long id) {
         todoService.deleteTodoById(id);
-    }
-    
-    @RequestMapping(value = "/todo/edit", method = RequestMethod.PUT)
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void edit(@RequestBody Todo todo) {
-        todoService.storeTodo(todo);
-    }
-    
-    @RequestMapping(value = "/todo/edit/{id}", method = RequestMethod.GET, produces = "application/json")
-    public @ResponseBody Todo getByIdToEdit(@PathVariable long id) {
-        return getById(id);
     }
 
     @Required
