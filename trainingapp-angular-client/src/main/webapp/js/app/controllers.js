@@ -23,11 +23,11 @@ function TodoDetailController($scope, $routeParams, $location, Todo) {
     };
 }
 
-function TodoEditController($scope, $routeParams, $location, TodoEdit){
-	$scope.todo = TodoEdit.get({id:$routeParams.id}, function (todo) {
+function TodoEditController($scope, $routeParams, $location, Todo){
+	$scope.todo = Todo.get({id:$routeParams.id}, function (todo) {
     });
 	 $scope.submit = function () {
-		 TodoEdit.save($scope.todo, function (todo) {
+		 Todo.save($scope.todo, function (todo) {
 	            $location.path('/');
 	        });
 	    };

@@ -36,8 +36,6 @@ public class TodoController {
     @RequestMapping(value = "/todo", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void create(@RequestBody Todo todo) {
-        long id = todoIdGenerator.incrementAndGet();
-        todo.setId(id);
         todoService.storeTodo(todo);
     }
     
