@@ -1,7 +1,7 @@
 'use strict';
 
-function TodoListController($scope, $location, Todo) {
-    $scope.todos = Todo.query();
+function TodoListController($scope, $location, RestServerAgent) {
+    $scope.todos = RestServerAgent.query();
     $scope.gotoTodoNewPage = function () {
         $location.path("/todo/new")
     };
@@ -12,8 +12,8 @@ function TodoListController($scope, $location, Todo) {
     };
 }
 
-function TodoDetailController($scope, $routeParams, $location, Todo) {
-    $scope.todo = Todo.get({id:$routeParams.id}, function (todo) {
+function TodoDetailController($scope, $routeParams, $location, RestServerAgent) {
+    $scope.todo = RestServerAgent.get({id:$routeParams.id}, function (todo) {
     });
     $scope.gotoTodoListPage = function () {
         $location.path("/")
@@ -23,11 +23,11 @@ function TodoDetailController($scope, $routeParams, $location, Todo) {
     };
 }
 
-function TodoEditController($scope, $routeParams, $location, Todo){
-	$scope.todo = Todo.get({id:$routeParams.id}, function (todo) {
+function TodoEditController($scope, $routeParams, $location, RestServerAgent){
+	$scope.todo = RestServerAgent.get({id:$routeParams.id}, function (todo) {
     });
 	$scope.submit = function () {
-		 Todo.save($scope.todo, function (todo) {
+		RestServerAgent.save($scope.todo, function (todo) {
 	            $location.path('/');
 	        });
 	    };
@@ -36,9 +36,9 @@ function TodoEditController($scope, $routeParams, $location, Todo){
 	};
 }
 
-function TodoNewController($scope, $location, Todo) {
+function TodoNewController($scope, $location, RestServerAgent) {
     $scope.submit = function () {
-        Todo.save($scope.todo, function (todo) {
+    	RestServerAgent.save($scope.todo, function (todo) {
             $location.path('/');
         });
     };
