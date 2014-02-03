@@ -2,7 +2,7 @@
 
     <h2>New Todo</h2>
 
-    <form>
+    <form class="css-form">
 
         <div class="formField">
             <label for="todo.titleA">Titre</label>
@@ -11,7 +11,7 @@
 
         <div class="formField">
             <label for="todo.description">Description</label>
-            <textarea id="todo.description" ng-model="todo.description">
+            <textarea ng-minlength=10 class="ng-dirty ng-invalid ng-invalid-required" name="todo.description" ng-minlength="4" ng-model="todo.description" required>
             </textarea>
         </div>
 
