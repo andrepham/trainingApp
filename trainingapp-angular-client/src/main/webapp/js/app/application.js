@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('todoApp', ['todoService']).
+angular.module('todoApp', ['todoService','ngRoute']).
         config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
             when('/todo/list', {templateUrl:'views/todo-list.html', controller:TodoListController}).
