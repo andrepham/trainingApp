@@ -2,16 +2,16 @@
 
     <h2>New Todo</h2>
 
-    <form class="css-form">
+    <form class="css-form" novalidate>
 
         <div class="formField">
-            <label for="todo.titleA">Titre</label>
-            <input id="todo.titleA" type="text" ng-model="todo.title" required/>
+            <label for="todo.title">Titre</label>
+            <input id="todo.title" type="text" ng-model="todo.title" required/>
         </div>
 
         <div class="formField">
             <label for="todo.description">Description</label>
-            <textarea ng-minlength=10 class="ng-dirty ng-invalid ng-invalid-required" name="todo.description" ng-minlength="4" ng-model="todo.description" required>
+            <textarea id="todo.description" ng-model="todo.description" required>
             </textarea>
         </div>
 
