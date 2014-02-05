@@ -3,7 +3,7 @@
 function TodoListController($scope, $location, RestServerAgent) {
     $scope.todos = RestServerAgent.query();
     $scope.gotoTodoNewPage = function () {
-        $location.path("/todo/new")
+        $location.path("/todo/new");
     };
     $scope.deleteTodo = function (todo) {
         todo.$delete({'id':todo.id}, function () {
@@ -16,10 +16,10 @@ function TodoDetailController($scope, $routeParams, $location, RestServerAgent) 
     $scope.todo = RestServerAgent.get({id:$routeParams.id}, function (todo) {
     });
     $scope.gotoTodoListPage = function () {
-        $location.path("/")
+        $location.path("/");
     };
     $scope.gotoEditMode = function(){
-    	$location.path("/todo/edit/"+$scope.todo.id)
+    	$location.path("/todo/edit/"+$scope.todo.id);
     };
 }
 
@@ -32,7 +32,7 @@ function TodoEditController($scope, $routeParams, $location, RestServerAgent){
 	        });
 	    };
 	$scope.gotoTodoListPage = function () {
-	     $location.path("/")
+	     $location.path("/");
 	};
 }
 
@@ -43,7 +43,7 @@ function TodoNewController($scope, $location, RestServerAgent) {
         });
     };
     $scope.gotoTodoListPage = function () {
-        $location.path("/")
+        $location.path("/");
     };
     $scope.master = {}; 
     $scope.reset = function() {
