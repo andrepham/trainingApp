@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import service.TodoService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author
@@ -39,6 +41,14 @@ public class TodoController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable long id) {
         todoService.deleteTodoById(id);
+    }
+    
+    @RequestMapping(value = "/todo/validate", method = RequestMethod.POST)
+    public @ResponseBody Map<String, String> validate(Todo todo) {
+    	Map<String,String> errors = new HashMap<String,String>();
+    	errors.put("1","2");
+    	errors.put("desc",todo.getDescription());
+    	return errors;
     }
 
     @Required
