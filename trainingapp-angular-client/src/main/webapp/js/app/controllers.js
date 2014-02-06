@@ -36,13 +36,17 @@ function TodoEditController($scope, $routeParams, $location, RestServerAgent){
 	};
 }
 
-function TodoNewController($scope, $location,$http,RestServerAgent) {
+function TodoNewController($scope, $location, $parse, $http,RestServerAgent) {
     $scope.submit = function () {
     	RestServerAgent.save($scope.todo, function (todo) {
     		$http.post("rest/todo/validate",$scope.todo).success(function(formErrors){
     			for (var fieldName in formErrors) {
        			 var message = formErrors[fieldName];
-       			alert(message);
+       			 var field = $parse('newForm.'+fieldName+'.$error.serverMessage');
+       			 //alert(typeof($scope.newForm));
+       			 $scope.newForm.$setValidity(fieldName, false);
+       			 field.assign($scope, message);
+//       			$location.path('/todo/new');
        		 }
     		});
     		 
