@@ -16,6 +16,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>3.1.1.RELEASE</spring.version>
 		<hsqldb.version>1.8.0.7</hsqldb.version>
+		<apache.commons-lang.version>2.6</apache.commons-lang.version>
 	</properties>
 
 	<modules>
@@ -54,6 +55,11 @@
 			<artifactId>junit</artifactId>
 			<version>4.10</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${apache.commons-lang.version}</version>
 		</dependency>
 	</dependencies>
 

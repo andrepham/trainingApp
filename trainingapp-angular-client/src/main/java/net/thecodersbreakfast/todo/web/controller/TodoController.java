@@ -2,6 +2,7 @@ package net.thecodersbreakfast.todo.web.controller;
 
 import model.Todo;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -44,10 +45,11 @@ public class TodoController {
     }
     
     @RequestMapping(value = "/todo/validate", method = RequestMethod.POST)
-    public @ResponseBody Map<String, String> validate(Todo todo) {
+    public @ResponseBody Map<String, String> validate(@RequestBody Todo toValidate) {
     	Map<String,String> errors = new HashMap<String,String>();
-    	errors.put("1","2");
-    	errors.put("desc",todo.getDescription());
+    	if(toValidate!=null && !StringUtils.isEmpty(toValidate.getTitle()) && toValidate.getTitle().length()<10){
+    		errors.put("title","Need more than 10");
+    	}
     	return errors;
     }
 

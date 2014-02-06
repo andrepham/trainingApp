@@ -2,11 +2,13 @@
 
     <h2>New Todo</h2>
 
-    <form class="css-form" novalidate>
+    <form name="newForm" class="css-form" novalidate>
 
         <div class="formField">
             <label for="todo.title">Titre</label>
-            <input id="todo.title" type="text" ng-model="todo.title" required/>
+            <input id="todo.title" name="title" type="text" ng-model="todo.title" required/>
+<!--             <span ng-show="newForm.title.$dirty">The title must be longer</span> -->
+           
         </div>
 
         <div class="formField">
