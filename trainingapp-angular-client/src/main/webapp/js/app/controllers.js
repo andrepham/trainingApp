@@ -36,22 +36,44 @@ function TodoEditController($scope, $routeParams, $location, RestServerAgent){
 	};
 }
 
-function TodoNewController($scope, $location, $parse, $http,RestServerAgent) {
+function TodoNewController($scope, $location, $parse, $http, $q, RestServerAgent) {
     $scope.submit = function () {
-    	RestServerAgent.save($scope.todo, function (todo) {
-    		$http.post("rest/todo/validate",$scope.todo).success(function(formErrors){
-    			for (var fieldName in formErrors) {
-       			 var message = formErrors[fieldName];
-       			 var field = $parse('newForm.'+fieldName+'.$error.serverMessage');
-       			 //alert(typeof($scope.newForm));
-       			 $scope.newForm.$setValidity(fieldName, false);
-       			 field.assign($scope, message);
-//       			$location.path('/todo/new');
-       		 }
+    	
+    function checkForm(){
+    	var deferred = $q.defer();
+    	
+    	setTimeout(function(){
+			
+			$http.post("rest/todo/validate",$scope.todo).success(function(formErrors){
+				var noError = jQuery.isEmptyObject(formErrors);
+				if(!noError){
+	    			for (var fieldName in formErrors) {
+	       			 var message = formErrors[fieldName];
+	       			 var field = $parse('newForm.'+fieldName+'.$error.serverMessage');
+	       			 $scope.newForm.$setValidity(fieldName, false);
+	       			 field.assign($scope, message);
+	       		 	}
+	    			deferred.reject("at least one error");
+				}
+				else{
+					deferred.resolve("No error");
+				}
     		});
-    		 
+			
+		},1000);
+    	
+    	return deferred.promise;
+    }	
+    
+    var promise = checkForm();
+    promise.then(function(){
+    	RestServerAgent.save($scope.todo, function (todo) {
             $location.path('/');
         });
+    }, function(){
+    	alert("There are some errors...");
+    });
+    
     };
     $scope.gotoTodoListPage = function () {
         $location.path("/");
