@@ -42,7 +42,7 @@ function TodoNewController($scope, $location, $parse, $http, $q, RestServerAgent
     function checkForm(){
     	var deferred = $q.defer();
     	
-    	setTimeout(function(){
+    	(function(){
 			
 			$http.post("rest/todo/validate",$scope.todo).success(function(formErrors){
 				var noError = jQuery.isEmptyObject(formErrors);
@@ -60,7 +60,7 @@ function TodoNewController($scope, $location, $parse, $http, $q, RestServerAgent
 				}
     		});
 			
-		},1000);
+		}).call();
     	
     	return deferred.promise;
     }	

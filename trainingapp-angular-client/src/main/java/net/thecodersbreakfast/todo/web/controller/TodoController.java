@@ -48,7 +48,7 @@ public class TodoController {
     public @ResponseBody Map<String, String> validate(@RequestBody Todo toValidate) {
     	Map<String,String> errors = new HashMap<String,String>();
     	if(toValidate!=null && !StringUtils.isEmpty(toValidate.getTitle()) && toValidate.getTitle().length()<10){
-    		errors.put("title","Need more than 10");
+    		errors.put("title","Need more than 10 characters");
     	}
     	return errors;
     }
