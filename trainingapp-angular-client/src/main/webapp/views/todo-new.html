@@ -2,12 +2,12 @@
 
     <h2>New Todo</h2>
 
-    <form name="newForm" class="css-form" novalidate>
+    <form name="newForm" ng-submit="submit()" class="css-form" novalidate>
 
         <div class="formField">
-            <label for="todo.title">Titre</label>
-            <input id="todo.title" name="title" type="text" ng-model="todo.title" required/>
-            <span ng-show="newForm.title.$error.serverMessage">{{myForm.title.$error.serverMessage}}</span>
+            <label for="todo.title">Titre (at least 3 letters)</label>
+            <input id="todo.title" name="title" type="text" ng-model="todo.title" ng-minlength="3" required/>
+            <span ng-show="newForm.title.$error.serverMessage">{{newForm.title.$error.serverMessage}}</span>
            
         </div>
 
@@ -20,7 +20,7 @@
         <hr/>
 
         <button class="button" ng-click="gotoTodoListPage()">&lt; Retour</button> &nbsp;
-        <button class="button" ng-click="submit()">Sauver</button> &nbsp;
+        <button class="button" ng-click="submit">Sauver</button> &nbsp;
         <button class="button" ng-click="reset()">RESET</button>
 
     </form>
