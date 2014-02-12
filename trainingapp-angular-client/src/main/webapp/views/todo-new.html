@@ -2,7 +2,7 @@
 
     <h2>New Todo</h2>
 
-    <form name="newForm" ng-submit="submit()" class="css-form" novalidate>
+    <form name="newForm" class="css-form" novalidate>
 
         <div class="formField">
             <label for="todo.title">Titre (at least 3 letters)</label>
@@ -16,11 +16,9 @@
             <textarea id="todo.description" ng-model="todo.description" required>
             </textarea>
         </div>
-
         <hr/>
-
-        <button class="button" ng-click="gotoTodoListPage()">&lt; Retour</button> &nbsp;
-        <button class="button" ng-click="submit">Sauver</button> &nbsp;
+        <button class="button" ng-click="gotoTodoListPage()">&lt; Retour</button>&nbsp;
+        <button class="button" ng-click="submit()" ng-disabled="newForm.$invalid">Sauver</button>&nbsp;
         <button class="button" ng-click="reset()">RESET</button>
 
     </form>
