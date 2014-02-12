@@ -121,8 +121,6 @@
 						</connector>
 					</connectors>
 				</configuration>
-
-
 			</plugin>
 		</plugins>
 	</build>

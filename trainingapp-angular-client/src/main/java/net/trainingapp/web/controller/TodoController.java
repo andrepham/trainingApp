@@ -2,7 +2,6 @@ package net.trainingapp.web.controller;
 
 import net.trainingapp.model.Todo;
 
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import service.TodoService;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -46,11 +44,7 @@ public class TodoController {
     
     @RequestMapping(value = "/todo/validate", method = RequestMethod.POST)
     public @ResponseBody Map<String, String> validate(@RequestBody Todo toValidate) {
-    	Map<String,String> errors = new HashMap<String,String>();
-    	if(toValidate!=null && (StringUtils.isEmpty(toValidate.getTitle()) || toValidate.getTitle().length()<10)){
-    		errors.put("title","Need more than 10 characters");
-    	}
-    	return errors;
+    	return todoService.validate(toValidate);
     }
 
     @Required

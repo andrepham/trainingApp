@@ -5,8 +5,8 @@
     <form name="newForm" class="css-form" novalidate>
 
         <div class="formField">
-            <label for="todo.title">Titre (at least 3 letters)</label>
-            <input id="todo.title" name="title" type="text" ng-model="todo.title" ng-minlength="3" required/>
+            <label for="todo.title">Titre (1 to 6 letters)</label>
+            <input id="todo.title" name="title" type="text" ng-model="todo.title" ng-minlength="1" ng-maxlength="6" required/>
             <span ng-show="newForm.title.$error.serverMessage">{{newForm.title.$error.serverMessage}}</span>
            
         </div>
