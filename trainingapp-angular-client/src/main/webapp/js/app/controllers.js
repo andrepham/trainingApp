@@ -38,7 +38,7 @@ function TodoEditController($scope, $routeParams, $location, RestServerAgent){
 
 function TodoNewController($scope, $location, $parse, $http, $q, RestServerAgent) {
     $scope.submit = function () {
-    	
+
     function checkForm(){
     	var deferred = $q.defer();
     	
@@ -50,7 +50,6 @@ function TodoNewController($scope, $location, $parse, $http, $q, RestServerAgent
 	    			for (var fieldName in formErrors) {
 	       			 var message = formErrors[fieldName];
 	       			 var field = $parse('newForm.'+fieldName+'.$error.serverMessage');
-	       			 $scope.newForm.$setValidity(fieldName, false);
 	       			 field.assign($scope, message);
 	       		 	}
 	    			deferred.reject("at least one error");
@@ -71,7 +70,7 @@ function TodoNewController($scope, $location, $parse, $http, $q, RestServerAgent
             $location.path('/');
         });
     }, function(){
-    	alert("There are some errors...");
+    	//alert("There are some errors...");
     });
     
     };
