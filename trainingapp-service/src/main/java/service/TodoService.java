@@ -2,10 +2,11 @@ package service;
 
 import java.util.List;
 
+import net.trainingapp.model.Todo;
+
 import org.springframework.beans.factory.annotation.Required;
 
 import dao.TodoDao;
-import model.Todo;
 
 public class TodoService {
 

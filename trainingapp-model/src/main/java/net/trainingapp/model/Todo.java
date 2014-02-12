@@ -1,4 +1,4 @@
-package model;
+package net.trainingapp.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

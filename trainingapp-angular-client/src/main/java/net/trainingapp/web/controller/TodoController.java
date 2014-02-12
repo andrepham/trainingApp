@@ -1,6 +1,6 @@
-package net.thecodersbreakfast.todo.web.controller;
+package net.trainingapp.web.controller;
 
-import model.Todo;
+import net.trainingapp.model.Todo;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Required;

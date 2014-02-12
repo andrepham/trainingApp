@@ -2,7 +2,7 @@ package dao;
 
 import java.util.List;
 
-import model.Todo;
+import net.trainingapp.model.Todo;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

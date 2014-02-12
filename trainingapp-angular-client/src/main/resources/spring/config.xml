@@ -14,7 +14,7 @@
     <context:annotation-config/>
 	
 	<import resource="classpath:store-service.xml"/>
-	<bean id="todoController" class="net.thecodersbreakfast.todo.web.controller.TodoController">
+	<bean id="todoController" class="net.trainingapp.web.controller.TodoController">
 	   <property name="todoService" ref="todoService"></property>
 	</bean>
 	
