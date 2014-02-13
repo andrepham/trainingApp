@@ -13,8 +13,9 @@
 
         <div class="formField">
             <label for="todo.description">Description</label>
-            <textarea id="todo.description" ng-model="todo.description" required>
+            <textarea id="todo.description" name="description" ng-model="todo.description" required>
             </textarea>
+            <span ng-show="newForm.description.$error.serverMessage">{{newForm.description.$error.serverMessage}}</span>
         </div>
         <hr/>
         <button class="button" ng-click="gotoTodoListPage()">&lt; Retour</button>&nbsp;
