@@ -30,10 +30,9 @@ public class TodoController {
         return todoService.retrieveTodoById(id);
     }
     
-    @RequestMapping(value = "/todo", method = RequestMethod.PUT)
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void create(@RequestBody Todo todo) {
-        todoService.storeTodo(todo);
+    @RequestMapping(value = "/todo", method = RequestMethod.PUT, produces = "application/json")
+    public @ResponseBody Map<String,String> save(@RequestBody Todo todo) {
+        return todoService.storeTodo(todo);
     }
     
     @RequestMapping(value = "/todo/{id}", method = RequestMethod.DELETE)
@@ -42,10 +41,10 @@ public class TodoController {
         todoService.deleteTodoById(id);
     }
     
-    @RequestMapping(value = "/todo/validate", method = RequestMethod.POST)
-    public @ResponseBody Map<String, String> validate(@RequestBody Todo toValidate) {
-    	return todoService.validate(toValidate);
-    }
+//    @RequestMapping(value = "/todo/validate", method = RequestMethod.POST)
+//    public @ResponseBody Map<String, String> validate(@RequestBody Todo toValidate) {
+//    	return todoService.validate(toValidate);
+//    }
 
     @Required
  	public void setTodoService(TodoService todoService) {

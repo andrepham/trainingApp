@@ -39,7 +39,7 @@ function TodoEditController($scope, $routeParams, $location, RestServerAgent){
 function TodoNewController($scope, $location, $parse, $http, $q, RestServerAgent) {
     $scope.submit = function () {
 
-    function checkForm(){
+ /*   function checkForm(){
     	var deferred = $q.defer();
     	
     	(function(){
@@ -66,11 +66,13 @@ function TodoNewController($scope, $location, $parse, $http, $q, RestServerAgent
     
     var promise = checkForm();
     promise.then(function(){
-    	RestServerAgent.save($scope.todo, function (todo) {
-            $location.path('/');
-        });
+    
     }, function(){
-    	//alert("There are some errors...");
+    });
+    */
+	RestServerAgent.save($scope.todo, function (data) {
+		console.log(data);
+			
     });
     
     };

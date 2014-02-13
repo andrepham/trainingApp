@@ -6,7 +6,7 @@
 
         <div class="formField">
             <label for="todo.title">Titre (1 to 6 letters)</label>
-            <input id="todo.title" name="title" type="text" ng-model="todo.title" ng-minlength="1" ng-maxlength="6" required/>
+            <input id="todo.title" name="title" type="text" ng-model="todo.title" ng-minlength="1" required/>
             <span ng-show="newForm.title.$error.serverMessage">{{newForm.title.$error.serverMessage}}</span>
            
         </div>
