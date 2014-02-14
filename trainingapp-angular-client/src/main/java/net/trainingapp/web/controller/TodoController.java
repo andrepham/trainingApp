@@ -41,11 +41,6 @@ public class TodoController {
         todoService.deleteTodoById(id);
     }
     
-//    @RequestMapping(value = "/todo/validate", method = RequestMethod.POST)
-//    public @ResponseBody Map<String, String> validate(@RequestBody Todo toValidate) {
-//    	return todoService.validate(toValidate);
-//    }
-
     @Required
  	public void setTodoService(TodoService todoService) {
  		this.todoService = todoService;

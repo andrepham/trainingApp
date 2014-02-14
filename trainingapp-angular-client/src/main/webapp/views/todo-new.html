@@ -1,21 +1,30 @@
 <div id="todoNew">
 
     <h2>New Todo</h2>
-
+	<h3>This page demonstrates client and server sides validation.</h3>
+	<h3>Min length is checked by client and server. Max is checked only by server.</h3>
     <form name="newForm" class="css-form" novalidate>
 
         <div class="formField">
-            <label for="todo.title">Titre (1 to 6 letters)</label>
-            <input id="todo.title" name="title" type="text" ng-model="todo.title" ng-minlength="1" required/>
+            <label for="todo.title">Titre (min: 2, max: 6 letters)</label>
+            <input id="todo.title" name="title" type="text" ng-model="todo.title" ng-minlength="2" ng-required="true"/>
+            <div ng-show="newForm.title.$dirty && newForm.title.$invalid">
+				<span ng-show="newForm.title.$error.required">Enter a title</span>
+				<span ng-show="newForm.title.$error.minlength">Title too short</span>
+			</div>
             <span ng-show="newForm.title.$error.serverMessage">{{newForm.title.$error.serverMessage}}</span>
            
         </div>
 
         <div class="formField">
-            <label for="todo.description">Description</label>
-            <textarea id="todo.description" name="description" ng-model="todo.description" required>
+            <label for="todo.description">Description (min: 2, max: 6 letters)</label>
+            <textarea id="todo.description" name="description" ng-model="todo.description" ng-minlength="2" ng-required="true"d>
             </textarea>
             <span ng-show="newForm.description.$error.serverMessage">{{newForm.description.$error.serverMessage}}</span>
+             <div ng-show="newForm.description.$dirty && newForm.description.$invalid">
+				<span ng-show="newForm.description.$error.required">Enter a description</span>
+				<span ng-show="newForm.description.$error.minlength">Description too short</span>
+			</div>
         </div>
         <hr/>
         <button class="button" ng-click="gotoTodoListPage()">&lt; Retour</button>&nbsp;

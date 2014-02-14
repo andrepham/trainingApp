@@ -17,12 +17,12 @@ public class TodoService {
 	
 	public Map<String,String> storeTodo(Todo todo){
 		Map<String,String> errors = new HashMap<String,String>();
-		if(todo!=null && (StringUtils.isEmpty(todo.getTitle()) || todo.getTitle().length()>7)){
-    		errors.put("title","Checked by server: between 1 and 6 letters");
-    		if(StringUtils.isEmpty(todo.getDescription()) || todo.getDescription().length()<2){
-    			errors.put("description","Description must ahave at least 2 letters");
-    		}
+		if(todo!=null && (StringUtils.isEmpty(todo.getTitle()) || todo.getTitle().length()<2 || todo.getTitle().length()>6)){
+    		errors.put("title","Checked by server: between 2 and 6 letters");
     	}
+		if(todo!=null && StringUtils.isEmpty(todo.getDescription()) || todo.getDescription().length()<2 || todo.getDescription().length()>6){
+			errors.put("description"," Checked by server: between 2 and 6 letters");
+		}
 		if(errors.isEmpty()){
 			todoDao.store(todo);
 		}
