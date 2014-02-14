@@ -56,6 +56,10 @@ button, input[type='submit'] {
     padding: 2px 4px;
 }
 
+button[disabled] {
+    background-color: #CCCCCC;
+}
+
 .button {
     padding: 4px 8px;
     font-family: arial, sans-serif;

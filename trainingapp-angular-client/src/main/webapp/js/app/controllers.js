@@ -23,36 +23,17 @@ function TodoDetailController($scope, $routeParams, $location, RestServerAgent) 
     };
 }
 
-function TodoEditController($scope, $routeParams, $location, RestServerAgent){
+function TodoEditController($scope, $location, $parse, $routeParams, RestServerAgent){
 	$scope.todo = RestServerAgent.get({id:$routeParams.id}, function (todo) {
     });
-	$scope.submit = function () {
-		RestServerAgent.save($scope.todo, function (todo) {
-	            $location.path('/');
-	        });
-	    };
+	includeSubmitFunctionInScope($scope, $location, $parse, RestServerAgent);
 	$scope.gotoTodoListPage = function () {
 	     $location.path("/");
 	};
 }
 
-	function TodoNewController($scope, $location, $parse, $http, $q, RestServerAgent) {
-	    $scope.submit = function () {
-			RestServerAgent.save($scope.todo, function (data) {
-				var fieldsToCheck=new Array("title","description");
-				var errorCount = 0;
-				for(var i =0; i<=fieldsToCheck.length; i++){
-					if(fieldsToCheck[i] in data){
-						var field = $parse("newForm."+fieldsToCheck[i]+".$error.serverMessage");
-						 field.assign($scope, data[fieldsToCheck[i]]);
-						 errorCount++;
-					}
-				}
-				if(errorCount==0){
-					$location.path("/");
-				}
-		    });
-	    };
+function TodoNewController($scope, $location, $parse, RestServerAgent) {
+	includeSubmitFunctionInScope($scope, $location, $parse, RestServerAgent);   
     $scope.gotoTodoListPage = function () {
         $location.path("/");
     };
@@ -61,3 +42,22 @@ function TodoEditController($scope, $routeParams, $location, RestServerAgent){
     	$scope.todo = angular.copy($scope.master);
     };
 }
+
+function includeSubmitFunctionInScope($scope, $location, $parse, RestServerAgent){
+		 $scope.submit = function () {
+				RestServerAgent.save($scope.todo, function (data) {
+					var fieldsToCheck=new Array("title","description");
+					var errorCount = 0;
+					for(var i =0; i<=fieldsToCheck.length; i++){
+						if(fieldsToCheck[i] in data){
+							var field = $parse("newForm."+fieldsToCheck[i]+".$error.serverMessage");
+							 field.assign($scope, data[fieldsToCheck[i]]);
+							 errorCount++;
+						}
+					}
+					if(errorCount==0){
+						$location.path("/");
+					}
+			    });
+		    };
+	}

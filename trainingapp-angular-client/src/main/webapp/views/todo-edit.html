@@ -1,19 +1,29 @@
 <div id="todoEdition">
 
     <h2>Edition</h2>
-    
-    <div class="formField">
-            <label for="todo.titleA">Titre</label>
-            <input id="todo.titleA" type="text" ng-model="todo.title" required>{{todo.title}}</>
+    <form name="newForm" class="css-form" novalidate>
+      <div class="formField">
+            <label for="todo.title">Titre (min: 2, max: 6 letters)</label>
+            <input id="todo.title" name="title" type="text" ng-model="todo.title" ng-minlength="2" ng-required="true"/>
+            <span ng-show="newForm.title.$error.serverMessage">{{newForm.title.$error.serverMessage}}</span>
+            <div ng-show="newForm.title.$dirty && newForm.title.$invalid">
+				<span ng-show="newForm.title.$error.required">Enter a title</span>
+				<span ng-show="newForm.title.$error.minlength">Title too short</span>
+			</div>
         </div>
 
         <div class="formField">
-            <label for="todo.description">Description</label>
-            <textarea id="todo.description" ng-model="todo.description">
+            <label for="todo.description">Description (min: 2, max: 6 letters)</label>
+            <textarea id="todo.description" name="description" ng-model="todo.description" ng-minlength="2" ng-required="true">
             </textarea>
+            <span ng-show="newForm.description.$error.serverMessage">{{newForm.description.$error.serverMessage}}</span>
+             <div ng-show="newForm.description.$dirty && newForm.description.$invalid">
+				<span ng-show="newForm.description.$error.required">Enter a description</span>
+				<span ng-show="newForm.description.$error.minlength">Description too short</span>
+			</div>
         </div>
 
     <button class="button" ng-click="gotoTodoListPage()">&lt; Retour</button> &nbsp;
-    <button class="button" ng-click="submit()">Sauver</button> &nbsp;
-
+    <button class="button" ng-click="submit()" ng-disabled="newForm.$invalid">Sauver</button> &nbsp;
+	</form>
 </div>
