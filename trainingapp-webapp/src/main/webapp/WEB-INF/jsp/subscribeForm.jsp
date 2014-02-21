@@ -74,7 +74,7 @@
 </table>
 </form:form>
 
-<%-- <h3><c:out value="${requestScope['andre']}" default="Inconnu"/></h3> --%>
+<h3><c:out value="${requestScope['subscription']}" default="Inconnu"/></h3>
 
 </body>
 </html>
