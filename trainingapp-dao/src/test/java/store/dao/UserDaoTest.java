@@ -14,7 +14,7 @@ import store.dao.UserDao;
 import store.model.Address;
 import store.model.User;
 
-@ContextConfiguration(locations={"/store-dao-test.xml", "/sessionfactory-test.xml"})
+@ContextConfiguration(locations={"/dao-test.xml", "/sessionfactory-test.xml"})
 @TransactionConfiguration(transactionManager="transactionManager")
 public class UserDaoTest extends AbstractTransactionalJUnit4SpringContextTests{
 

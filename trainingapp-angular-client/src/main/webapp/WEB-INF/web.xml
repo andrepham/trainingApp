@@ -5,7 +5,7 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:store-service.xml
+		<param-value>classpath:service.xml
 		classpath:/spring/security.xml
 		</param-value>
 	</context-param>
@@ -32,8 +32,7 @@
     <init-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-        classpath:/spring/config.xml
-        classpath:/spring/security.xml
+        classpath:/spring/mvc.xml
         </param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>

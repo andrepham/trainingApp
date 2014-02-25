@@ -13,7 +13,7 @@
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
     <context:annotation-config/>
 	
-	<import resource="classpath:store-service.xml"/>
+	<import resource="classpath:service.xml"/>
 	<bean id="todoController" class="net.trainingapp.web.controller.TodoController">
 	   <property name="todoService" ref="todoService"></property>
 	</bean>
