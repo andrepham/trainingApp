@@ -1,4 +1,4 @@
-package store.model.dto;
+package model.dto;
 
 public class SubscriptionDTO {
 

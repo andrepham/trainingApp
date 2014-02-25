@@ -1,7 +1,13 @@
-package store.dao;
+package dao;
 
 import javax.annotation.Resource;
 
+
+
+
+
+import model.Address;
+import model.User;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,9 +16,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
-import store.dao.UserDao;
-import store.model.Address;
-import store.model.User;
+import dao.UserDao;
 
 @ContextConfiguration(locations={"/dao-test.xml", "/sessionfactory-test.xml"})
 @TransactionConfiguration(transactionManager="transactionManager")

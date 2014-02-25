@@ -15,7 +15,7 @@
        <property name="dataSource" ref="dataSource"/>
        <property name="annotatedClasses">
             <list>
-                <value>store.model.User</value>
+                <value>model.User</value>
             </list>
        </property>
        <property name="hibernateProperties">

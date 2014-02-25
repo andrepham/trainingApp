@@ -6,7 +6,7 @@
 
     <import resource="classpath:sessionfactory.xml"/>
     <import resource="classpath:model.xml"/>
-	<bean id="userDao" class="store.dao.UserDao">
+	<bean id="userDao" class="dao.UserDao">
 	   <property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	

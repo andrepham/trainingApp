@@ -1,6 +1,6 @@
-package net.trainingapp.web.controller;
+package controller;
 
-import net.trainingapp.model.Todo;
+import model.Todo;
 
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.http.HttpStatus;

@@ -1,10 +1,12 @@
-package store.model.validator;
+package model.validator;
 
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import javax.annotation.Resource;
+
+import model.validator.SubscriptionValidator;
 
 import org.junit.Assert;
 import org.junit.Test;

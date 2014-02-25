@@ -2,15 +2,14 @@ package dao;
 
 import java.util.List;
 
-import net.trainingapp.model.Todo;
+import model.Todo;
+import model.User;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Required;
-
-import store.model.User;
 
 public class TodoDao {
 

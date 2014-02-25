@@ -1,12 +1,13 @@
-package store.service;
+package service;
 
+
+import model.Address;
+import model.User;
+import model.dto.SubscriptionDTO;
 
 import org.springframework.beans.factory.annotation.Required;
 
-import store.dao.UserDao;
-import store.model.Address;
-import store.model.User;
-import store.model.dto.SubscriptionDTO;
+import dao.UserDao;
 
 
 public class SubscriptionService {

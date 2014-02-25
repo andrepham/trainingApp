@@ -1,15 +1,16 @@
-package store.model.validator;
+package model.validator;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
+
+import model.dto.SubscriptionDTO;
+
 //import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
-
-import store.model.dto.SubscriptionDTO;
 
 public class SubscriptionValidator implements Validator{
 

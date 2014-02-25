@@ -8,7 +8,7 @@
              http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
 	default-lazy-init="true">
 	<import resource="classpath:dao.xml"/>
-	<bean id="subscriptionService" class="store.service.SubscriptionService">
+	<bean id="subscriptionService" class="service.SubscriptionService">
 	   <property name="userDao" ref="userDao"/>
 	</bean>
 	<bean id="todoService" class="service.TodoService">

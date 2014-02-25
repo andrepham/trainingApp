@@ -15,8 +15,8 @@
        <property name="dataSource" ref="dataSource"/>
        <property name="annotatedClasses">
             <list>
-                <value>store.model.User</value>
-                <value>store.model.Address</value>
+                <value>model.User</value>
+                <value>model.Address</value>
             </list>
        </property>
        <property name="hibernateProperties">
@@ -40,7 +40,7 @@
        <property name="dataSource" ref="todoDataSource"/>
        <property name="annotatedClasses">
             <list>
-                <value>net.trainingapp.model.Todo</value>
+                <value>model.Todo</value>
             </list>
        </property>
        <property name="hibernateProperties">

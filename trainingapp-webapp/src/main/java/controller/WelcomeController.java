@@ -1,7 +1,13 @@
-package store.webapp.controller;
+package controller;
 
 import java.util.Calendar;
 
+
+
+
+
+import model.dto.SubscriptionDTO;
+import model.validator.SubscriptionValidator;
 
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
@@ -13,9 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import store.model.dto.SubscriptionDTO;
-import store.model.validator.SubscriptionValidator;
-import store.service.SubscriptionService;
+import service.SubscriptionService;
 
 @Controller
 @RequestMapping("/welcome")
